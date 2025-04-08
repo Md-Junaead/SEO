@@ -4,25 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEO Process Diagram</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Container styling */
+        .seo-diagram {
+            background-color: white; /* Solid black background */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh; /* Ensure it takes full viewport height for visibility */
+        }
+
+        /* Circular diagram sizing */
+        .circular-diagram {
+            width: 300px; /* Adjustable; scales SVG proportionally */
+            height: 300px;
+            background-color: black;
+            border-radius: 50%;
+        }
+
+        /* Text box styling */
+        .text-box {
+            background-color: #333333; /* Dark gray background */
+            color: #FFFFFF; /* White text */
+            padding: 10px 15px; /* Padding as per description */
+            border-radius: 10px; /* Rounded corners */
+            width: 60%; /* 60% width as specified */
+            margin-top: 20px; /* Margin from the circular diagram */
+            font-family: Arial, sans-serif; /* Sans-serif font */
+            text-align: left; /* Left-aligned text */
+        }
+    </style>
 </head>
 <body>
     <div class="seo-diagram">
         <svg class="circular-diagram" viewBox="0 0 100 100">
-            <!-- Outer text paths -->
-            <path id="top-path" d="M30 15.36 A40 40 0 0 1 70 15.36" fill="none" />
-            <path id="bottom-path" d="M70 84.64 A40 40 0 0 1 30 84.64" fill="none" />
-            <path id="left-path" d="M15.36 70 A40 40 0 0 1 15.36 30" fill="none" />
+            <!-- Radial lines for separation of outer circle sections -->
+            <line x1="50" y1="50" x2="95" y2="50" stroke="#333333" stroke-width="0.5" />
+            <line x1="50" y1="50" x2="27.5" y2="88.97" stroke="#333333" stroke-width="0.5" />
+            <line x1="50" y1="50" x2="27.5" y2="11.03" stroke="#333333" stroke-width="0.5" />
 
-            <!-- Outer text -->
+            <!-- Text paths for outer circle sections -->
+            <path id="top-path" d="M88.97 27.5 A45 45 0 0 1 88.97 72.5" fill="none" />
+            <path id="bottom-path" d="M11.03 72.5 A45 45 0 0 1 11.03 27.5" fill="none" />
+            <path id="left-path" d="M27.5 11.03 A45 45 0 0 1 72.5 11.03" fill="none" />
+
+            <!-- Outer text labels centered in each section -->
             <text font-family="Arial, sans-serif" font-weight="bold" fill="#FFFFFF" font-size="3">
-                <textPath href="#top-path">THE DISCOVERY PHASE</textPath>
+                <textPath href="#top-path" startOffset="50%" text-anchor="middle">THE DISCOVERY PHASE</textPath>
             </text>
             <text font-family="Arial, sans-serif" font-weight="bold" fill="#FFFFFF" font-size="3">
-                <textPath href="#bottom-path">STRATEGY</textPath>
+                <textPath href="#bottom-path" startOffset="50%" text-anchor="middle">STRATEGY</textPath>
             </text>
             <text font-family="Arial, sans-serif" font-weight="bold" fill="#FFFFFF" font-size="3">
-                <textPath href="#left-path">IMPLEMENTATION & MANAGEMENT</textPath>
+                <textPath href="#left-path" startOffset="50%" text-anchor="middle">IMPLEMENTATION & MANAGEMENT</textPath>
             </text>
 
             <!-- Inner segments -->
