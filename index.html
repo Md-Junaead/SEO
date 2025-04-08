@@ -7,17 +7,17 @@
     <style>
         /* Container styling */
         .seo-diagram {
-            background-color: white; /* Solid black background */
+            background-color: white;
             padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh; /* Ensure it takes full viewport height for visibility */
+            min-height: 100vh;
         }
 
         /* Circular diagram sizing */
         .circular-diagram {
-            width: 300px; /* Adjustable; scales SVG proportionally */
+            width: 300px;
             height: 300px;
             background-color: black;
             border-radius: 50%;
@@ -25,31 +25,42 @@
 
         /* Text box styling */
         .text-box {
-            background-color: #333333; /* Dark gray background */
-            color: #FFFFFF; /* White text */
-            padding: 10px 15px; /* Padding as per description */
-            border-radius: 10px; /* Rounded corners */
-            width: 60%; /* 60% width as specified */
-            margin-top: 20px; /* Margin from the circular diagram */
-            font-family: Arial, sans-serif; /* Sans-serif font */
-            text-align: left; /* Left-aligned text */
+            background-color: #333333;
+            color: #FFFFFF;
+            padding: 10px 15px;
+            border-radius: 10px;
+            width: 60%;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+            text-align: left;
+        }
+
+        /* Hover effect for the middle section */
+        .middle-section:hover .yellow-segment {
+            fill: #FFD54F;
+        }
+        .middle-section:hover .white-segment {
+            fill: #E0E0E0;
         }
     </style>
 </head>
 <body>
     <div class="seo-diagram">
         <svg class="circular-diagram" viewBox="0 0 100 100">
-            <!-- Radial lines for separation of outer circle sections -->
-            <line x1="50" y1="50" x2="95" y2="50" stroke="#333333" stroke-width="0.5" />
-            <line x1="50" y1="50" x2="27.5" y2="88.97" stroke="#333333" stroke-width="0.5" />
-            <line x1="50" y1="50" x2="27.5" y2="11.03" stroke="#333333" stroke-width="0.5" />
+            <!-- Outer circle (outline only, blends with background) -->
+            <circle cx="50" cy="50" r="45" fill="none" />
+
+            <!-- White dividers for outer circle (radial lines) -->
+            <line x1="50" y1="50" x2="95" y2="50" stroke="white" stroke-width="1" />
+            <line x1="50" y1="50" x2="27.5" y2="88.97" stroke="white" stroke-width="1" />
+            <line x1="50" y1="50" x2="27.5" y2="11.03" stroke="white" stroke-width="1" />
 
             <!-- Text paths for outer circle sections -->
-            <path id="top-path" d="M88.97 27.5 A45 45 0 0 1 88.97 72.5" fill="none" />
-            <path id="bottom-path" d="M11.03 72.5 A45 45 0 0 1 11.03 27.5" fill="none" />
-            <path id="left-path" d="M27.5 11.03 A45 45 0 0 1 72.5 11.03" fill="none" />
+            <path id="top-path" d="M 27.5 11.03 A45 45 0 0 1 95 50" fill="none" />
+            <path id="bottom-path" d="M 95 50 A45 45 0 0 1 27.5 88.97" fill="none" />
+            <path id="left-path" d="M 27.5 88.97 A45 45 0 0 1 27.5 11.03" fill="none" />
 
-            <!-- Outer text labels centered in each section -->
+            <!-- Outer text labels -->
             <text font-family="Arial, sans-serif" font-weight="bold" fill="#FFFFFF" font-size="3">
                 <textPath href="#top-path" startOffset="50%" text-anchor="middle">THE DISCOVERY PHASE</textPath>
             </text>
@@ -60,25 +71,28 @@
                 <textPath href="#left-path" startOffset="50%" text-anchor="middle">IMPLEMENTATION & MANAGEMENT</textPath>
             </text>
 
-            <!-- Inner segments -->
-            <path d="M50,50 L50,85 A35,35 0 0 1 25.25,74.75 Z" fill="#FFC107" />
-            <path d="M50,50 L25.25,74.75 A35,35 0 0 1 15,50 Z" fill="#FFC107" />
-            <path d="M50,50 L15,50 A35,35 0 0 1 25.25,25.25 Z" fill="#FFC107" />
-            <path d="M50,50 L25.25,25.25 A35,35 0 0 1 50,15 Z" fill="#FFC107" />
-            <path d="M50,50 L50,15 A35,35 0 0 1 74.75,25.25 Z" fill="#FFC107" />
-            <path d="M50,50 L74.75,25.25 A35,35 0 0 1 85,50 Z" fill="#FFC107" />
-            <path d="M50,50 L85,50 A35,35 0 0 1 74.75,74.75 Z" fill="#FFC107" />
-            <path d="M50,50 L74.75,74.75 A35,35 0 0 1 50,85 Z" fill="#FFFFFF" /> <!-- Technical Audit -->
+            <!-- Middle section with hover effect -->
+            <g class="middle-section">
+                <!-- Inner segments -->
+                <path class="yellow-segment" d="M50,50 L50,85 A35,35 0 0 1 25.25,74.75 Z" fill="#FFC107" />
+                <path class="yellow-segment" d="M50,50 L25.25,74.75 A35,35 0 0 1 15,50 Z" fill="#FFC107" />
+                <path class="yellow-segment" d="M50,50 L15,50 A35,35 0 0 1 25.25,25.25 Z" fill="#FFC107" />
+                <path class="yellow-segment" d="M50,50 L25.25,25.25 A35,35 0 0 1 50,15 Z" fill="#FFC107" />
+                <path class="yellow-segment" d="M50,50 L50,15 A35,35 0 0 1 74.75,25.25 Z" fill="#FFC107" />
+                <path class="yellow-segment" d="M50,50 L74.75,25.25 A35,35 0 0 1 85,50 Z" fill="#FFC107" />
+                <path class="yellow-segment" d="M50,50 L85,50 A35,35 0 0 1 74.75,74.75 Z" fill="#FFC107" />
+                <path class="white-segment" d="M50,50 L74.75,74.75 A35,35 0 0 1 50,85 Z" fill="#FFFFFF" />
 
-            <!-- Segment labels -->
-            <text x="40.43" y="73.1" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="2.5">Keyword Research</text>
-            <text x="26.9" y="59.6" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="2.5">Content Strategy</text>
-            <text x="26.9" y="40.4" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="2.5">Refine Website Architecture</text>
-            <text x="40.43" y="26.9" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="2.5">On-Page Optimization</text>
-            <text x="59.57" y="26.9" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="2.5">Off-Page Submissions</text>
-            <text x="73.1" y="40.4" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="2.5">Monitoring & Performance Reviews</text>
-            <text x="73.1" y="59.6" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="2.5">Business Analysis & Review</text>
-            <text x="59.57" y="73.1" text-anchor="middle" fill="#000000" font-family="Arial, sans-serif" font-size="2.5">Technical Audit</text>
+                <!-- Segment labels -->
+                <text x="40.43" y="73.1" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="2.5">Keyword Research</text>
+                <text x="26.9" y="59.6" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="2.5">Content Strategy</text>
+                <text x="26.9" y="40.4" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="2.5">Refine Website Architecture</text>
+                <text x="40.43" y="26.9" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="2.5">On-Page Optimization</text>
+                <text x="59.57" y="26.9" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="2.5">Off-Page Submissions</text>
+                <text x="73.1" y="40.4" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="2.5">Monitoring & Performance Reviews</text>
+                <text x="73.1" y="59.6" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="2.5">Business Analysis & Review</text>
+                <text x="59.57" y="73.1" text-anchor="middle" fill="#000000" font-family="Arial, sans-serif" font-size="2.5">Technical Audit</text>
+            </g>
 
             <!-- Central circle -->
             <circle cx="50" cy="50" r="15" fill="#000000" />
